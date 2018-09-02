@@ -1,0 +1,37 @@
+.main-sector{
+    display: none;
+    width: 200px;
+    height: auto;
+    z-index: 100;
+    position: absolute;
+}
+
+.result {
+    background: #667C69;
+    width: 200px;
+    height: auto;
+    display: inline-block;
+    position: absolute;
+    top: 5px;
+}
+
+.result input[type='text'] {
+    font-size: 18px;
+    border: 0;
+    padding: 3px;
+    color: #8B9A8D;
+    padding-left: 5px;
+    /* width: 100px; */
+    background-color: inherit;
+    font-weight: bold;
+    /* color: inherit; */
+    /* margin-left: 5px; */
+}
+
+.result input[type='text']:focus {
+    outline: none;
+}
+
+.result input[type='text']::placeholder {
+    color: #8B9A8D;
+}
