@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { GOOGLE_KEY } from '../consts';
+import { GEO_KEY } from '../consts';
 
 
 import Geocode from "react-geocode";
@@ -10,8 +10,10 @@ import { Icon } from 'react-icons-kit';
 import {plusCircle} from 'react-icons-kit/fa/plusCircle';
 
 
-const key = GOOGLE_KEY;
-Geocode.setApiKey(key);
+const geo_key = GEO_KEY;
+Geocode.setApiKey(geo_key);
+Geocode.enableDebug();
+
 
 
 
@@ -31,14 +33,16 @@ submit(e){
 
   Geocode.fromLatLng(this.props.geo.lat, this.props.geo.lng).then(
   response => {
-    const address = response.results[0].formatted_address;
+    console.log('okay !');
+    const address = response.results[0].address_components.filter(obj => obj.types.find(elem=>{
+      return elem === 'country';
+    }));
     console.log(address);
   },
   error => {
     console.error(error);
   }
 );
-  // console.log(this.state.search);
 }
 
 onChange(e){
@@ -51,7 +55,7 @@ onChange(e){
         <div style={{color:'#FE523B',position:'relative',display:'inline-block'}}><Icon size={32} icon={plusCircle} /></div>
         <div className='result'>
           <form onSubmit={this.submit}>
-            <input type='text' placeholder="Search..." name="search" onChange={this.onChange}></input>
+            <input type='text' placeholder="Search..." name="search" autoComplete="off" onChange={this.onChange}></input>
           </form>
         </div>
       </div>

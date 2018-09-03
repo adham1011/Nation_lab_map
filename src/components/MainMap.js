@@ -31,7 +31,6 @@ class MainMap extends Component {
         lat:0,
         lng:0
       }
-
     }
     // this.increment = this.increment.bind(this);
   }
@@ -70,10 +69,3 @@ class MainMap extends Component {
 }
 
 export default MainMap;
-
-
-
-        // <div style={{width: '20%', height:'100px', position:'absolute','z-index':'100',background:'#000' ,display:this.state.display, top:this.state.y, left:this.state.x}}>
-        //   <h1>Hello World</h1>
-        // </div>
-
